@@ -4,9 +4,10 @@ const server = io()
 const handleAlert = (data) => {
     if (data.length === 0) {
         const newAlert = document.createElement("div")
-        newAlert.innerHTML = `<div id="alert" class="alert alert-danger mx-auto" style="width: 400px" role="alert">
+        newAlert.innerHTML = `<div class="alert alert-danger mx-auto" style="width: 400px" role="alert">
         <span class="mx-auto"> No existen productos agregados por el momento.</span>
         </div>`
+        newAlert.id="boxAlert"
         const container = document.getElementById("alertContainer")
         container.appendChild(newAlert)
     }
