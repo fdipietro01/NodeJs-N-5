@@ -1,0 +1,100 @@
+<div class="alert alert-info">
+    <h1 class="mx-auto" style="width: 450px">Control de productos</h1>
+</div>
+
+<div style="display: flex">
+    <div id="container" class="mx-auto" style="width: 50%">
+        <table class="table table-stripped" id="tableProd">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Código</th>
+                    <th scope="col">Thumbnail</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Categoría</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">ID</th>
+                </tr>
+            </thead>
+            <tbody id="body">
+                {{#if dataExist}}
+                {{#each data}}
+                <tr>
+                    <td>{{this.title}}</td>
+                    <td>{{this.description}}</td>
+                    <td>{{this.price}}</td>
+                    <td>{{this.code}}</td>
+                    <td>{{this.thumbnail}}</td>
+                    <td>{{this.stock}}</td>
+                    <td>{{this.category}}</td>
+                    <td>{{this.status}}</td>
+                    <td>{{this.id}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <div id="alertContainer"></div>
+        {{else}}
+        </tbody>
+        </table>
+        <div id="alertContainer">
+            <div id="boxAlert" class="alert alert-danger mx-auto" style="width: 400px" role="alert">
+                <span class="mx-auto"> No existen productos agregados por el momento.</span>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+
+    <div id="containerForm" class="mx-auto" style="width: 20%">
+        <form id="form1">
+            <div class="form-group">
+                <label class="alert-info" style="padding:3px">Título</label>
+                <input type="text" class="form-control" id="titulo" placeholder="Ingresar título">
+            </div>
+            <div class="form-group">
+                <label class="alert-info" style="padding:3px">Descripción</label>
+                <input type="text" class="form-control" id="descripción" placeholder="Ingresar descripción">
+            </div>
+            <div class="form-group">
+                <label class="alert-info" style="padding:3px">Precio</label>
+                <input type="text" class="form-control" id="precio" placeholder="Ingresar precio">
+            </div>
+            <div class="form-group">
+                <label class="alert-info" style="padding:3px">Thumbnail</label>
+                <input type="text" class="form-control" id="thumbnail" placeholder="Ingresar Thumbnail">
+            </div>
+            <div class="form-group">
+                <label class="alert-info" style="padding:3px">Código</label>
+                <input type="text" class="form-control" id="código" placeholder="Ingresar Código">
+            </div>
+            <div class="form-group">
+                <label class="alert-info" style="padding:3px">Stock</label>
+                <input type="text" class="form-control" id="stock" placeholder="Ingresar Stock">
+            </div>
+            <div class="form-group">
+                <label class="alert-info" style="padding:3px">Categoría</label>
+                <input type="text" class="form-control" id="categoría" placeholder="Ingresar Categoría">
+            </div>
+            <div class="mx-auto" style="width: 40%">
+                <button type="submit" class=" btn-info">Agregar Producto</button>
+            </div>
+        </form>
+
+    </div>
+    <div class="mx-auto" style="width: 15%">
+        <form id="form2">
+            <div class="form-group">
+                <label class="alert-info" style="padding:3px">Eliminar Producto por ID</label>
+                <input type="text" class="form-control" id="eliminarId" placeholder="Ingresar ID">
+            </div>
+            <div class="mx-auto" style="width: 50%">
+                <button type="submit" class=" btn-info">Eliminar Producto</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/aleas/js/index.js"></script>

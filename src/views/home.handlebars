@@ -1,0 +1,40 @@
+<div class="alert alert-info">
+    <h1 class="mx-auto" style="width: 450px">Tabla de Productos</h1>
+</div>
+<table style="width: 85%" class="table table-stripped mx-auto">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Titulo</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Código</th>
+            <th scope="col">Thumbnail</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Categoría</th>
+            <th scope="col">Status</th>
+            <th scope="col">ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#if dataExist}}
+        {{#each data}}
+        <tr>
+            <td>{{this.title}}</td>
+            <td>{{this.description}}</td>
+            <td>{{this.price}}</td>
+            <td>{{this.code}}</td>
+            <td>{{this.thumbnail}}</td>
+            <td>{{this.stock}}</td>
+            <td>{{this.category}}</td>
+            <td>{{this.status}}</td>
+            <td>{{this.id}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+        {{else}}
+</table>
+<div class="alert alert-danger mx-auto" style="width: 400px" role="alert">
+    <span class="mx-auto"> No existen productos agregados por el momento.</span>
+</div>
+{{/if}}

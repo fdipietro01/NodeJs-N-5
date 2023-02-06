@@ -1,8 +1,6 @@
 const { Router } = require("express")
-const ProductManager = require("../classes/ProductManager")
 
 const productsRouter = Router()
-const productManager = new ProductManager("./productos")
 
 productsRouter.get("/", async (req, res) => {
     const { limit } = req.query

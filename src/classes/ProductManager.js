@@ -35,7 +35,8 @@ class ProductManager {
             try {
                 const data = await fs.promises.readFile(this.path)
                 const dataParsed = JSON.parse(data)
-                return dataParsed
+                const avaiableProducts = dataParsed.filter(prd=>prd.status)
+                return avaiableProducts
             }
             catch (err) {
                 throw new Error("Error al leer productos", err)
